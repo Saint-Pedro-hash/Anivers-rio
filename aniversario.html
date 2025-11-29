@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Surpresa</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #F4C2C2 0%, #E8A9B7 50%, #F7D5DB 100%);
+        color: black;
+        font-family: 'Pacifico', cursive;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-size: 24px;
+    }
+    #entrada {
+        text-align: center;
+        background: black;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #entrada h1 {
+        font-size: 48px;
+    }
+    #conteudo {
+        display: none;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    #conteudo h2 {
+        font-size: 42px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    button {
+        padding: 16px 32px;
+        border: none;
+        background: white;
+        color: black;
+        font-size: 24px;
+        border-radius: 8px;
+        cursor: pointer;
+        position: absolute;
+        transition: all 0.3s ease;
+    }
+    .bloco {
+        background: #ffffffd9;
+        color: black;
+        padding: 30px;
+        margin: 20px;
+        border-radius: 14px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        font-size: 28px;
+        text-align: center;
+    }
+    .bloco.foto img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease;
+    }
+    .bloco.foto img:hover {
+        transform: scale(1.05);
+    }
+
+    /* Layout das colunas */
+    .conteudo-principal {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    .coluna-foto {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 20%;
+        min-width: 150px;
+    }
+    .coluna-texto {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 50%;
+        min-width: 300px;
+        align-items: center;
+    }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="entrada">
+    <h1>Pronta para ver sua surpresa?</h1>
+    <button onclick="entrar()">Entrar</button>
+</div>
+
+<div id="conteudo">
+    <div class="conteudo-principal">
+        <!-- Coluna da esquerda (fotos) -->
+        <div class="coluna-foto">
+            <div class="bloco foto">
+                <p>Foto 1</p>
+                <img src="foto1.png.jfif" alt="Coloque sua foto aqui">
+            </div>
+            <div class="bloco foto">
+                <p>Foto 2</p>
+                <img src="foto2.png.jfif" alt="Coloque sua foto aqui">
+            </div>
+        </div>
+
+        <!-- Coluna do meio (texto) -->
+        <div class="coluna-texto">
+            <h2>✨ Feliz aniversário Abigaaaiill ✨</h2>
+            <div class="bloco">Só queria te dizer que você é uma pessoa muito importante pra mim, você faz o meu dia basicamente kkk. Eu sou muito grato por você ter nascido.</div>
+            <div class="bloco">Você é muito especial, poxa, você é uma pessoa tão legal, carismática, sorrindente, altruísta, doce etc...</div>
+            <div class="bloco">Muito obrigado mesmo, por tudo aaaaaaaaaaaaaaaaa kkkk.</div>
+        </div>
+
+        <!-- Coluna da direita (foto) -->
+        <div class="coluna-foto">
+            <div class="bloco foto">
+                <p>Foto 3</p>
+                <img src="foto3.png.jfif" alt="Coloque sua foto aqui">
+            </div>
+        </div>
+    </div>
+
+    <!-- PLAYER YOUTUBE INVISÍVEL -->
+    <iframe id="musica" width="0" height="0"
+        src=""
+        frameborder="0"
+        allow="autoplay">
+    </iframe>
+</div>
+
+<script>
+let tentativas = 0;
+function entrar() {
+    const botao = document.querySelector('button');
+
+    if (tentativas < 5) {
+        botao.style.top = Math.random() * 80 + '%';
+        botao.style.left = Math.random() * 80 + '%';
+        tentativas++;
+        return;
+    }
+
+    document.getElementById("entrada").style.display = "none";
+    document.getElementById("conteudo").style.display = "block";
+
+    document.getElementById("musica").src =
+        "https://www.youtube.com/embed/_R3B2Xr8kwQ?autoplay=1&mute=0";
+}
+</script>
+
+</body>
+</html>
